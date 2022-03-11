@@ -24,4 +24,12 @@ public class Note {
 		}
 		return false;
 	}
+	
+	public int compareTo(Note o) {
+		return -date.compareTo(o.date);
+	}
+	
+	public String toString() {
+		return date.toString() + "\t" + title;
+	}
 }
