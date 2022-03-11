@@ -62,10 +62,15 @@ public class Folder implements Comparable<Folder> {
 		for(Note n: notes) {
 			flag = true;
 			for(int i=0; i<keyword.length; i++) {
-				if(keyword[i]=="or") continue;
+				//System.out.print(keyword[i]);
+				if(keyword[i].equals("or")) continue;
 				if(n instanceof ImageNote) {
+					//System.out.println(n.getTitle().toLowerCase());
 					if(n.getTitle().toLowerCase().contains(keyword[i])) {
-						if(i<keyword.length-1 && keyword[i+1]=="or") i+=2;
+						if(i<keyword.length-1 && keyword[i+1].equals("or")) i+=2;
+						continue;
+					}
+					else if (i<keyword.length-1 && keyword[i+1].equals("or")){
 						continue;
 					}
 					flag = false;
@@ -73,12 +78,17 @@ public class Folder implements Comparable<Folder> {
 				else {
 					TextNote t = (TextNote) n;
 					if(t.getTitle().toLowerCase().contains(keyword[i]) || t.content.toLowerCase().contains(keyword[i])) {
-						if(i<keyword.length-1 && keyword[i+1]=="or") i+=2;
+						if(i<keyword.length-1 && keyword[i+1].equals("or")) i+=2;
+						continue;
+					}
+					else if (i<keyword.length-1 && keyword[i+1].equals("or")){
 						continue;
 					}
 					flag = false;
 				}
-				if(flag==true) Notesatisfy.add(n);
+			}
+			if(flag==true) {				
+				Notesatisfy.add(n);
 			}
 		}
 		return Notesatisfy;
