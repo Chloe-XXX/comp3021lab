@@ -29,6 +29,10 @@ public class NoteBook implements Serializable{
 		}
 	}
 	
+	public void addFolder(String f) {
+		folders.add(new Folder(f));
+	}
+	
 	public boolean insertNote(String folderName, Note note) {
 		Folder f = null;
 		for(Folder f1:folders) {

@@ -53,4 +53,8 @@ public class TextNote extends Note {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setTextNoteContent(String text) {
+		this.content=text;
+	}
 }
