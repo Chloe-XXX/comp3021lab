@@ -59,7 +59,7 @@ public class LettersUI extends Application {
 		t5.start();
 	}
 
-	public void showText(Text text, boolean show) {
+	public synchronized void showText(Text text, boolean show) {
 		// the parameter show tells if the text has to appear o disappear
 		try {
 			if (show) {
